@@ -1,22 +1,22 @@
-import { Button } from "@/components/ui/button"
+import { CalculatorForm } from "@/components/calculator/CalculatorForm"
+import { PriceSummary } from "@/components/calculator/PriceSummary"
+import { Header } from "@/components/layout/Header"
 
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="space-y-6 rounded-2xl border bg-background p-10 shadow-sm">
-        <div>
-          <h1 className="text-4xl font-bold tracking-tight">
-            Pool Price Calculator
-          </h1>
+    <div className="min-h-screen bg-muted/40">
+      <Header />
 
-          <p className="mt-2 text-muted-foreground">
-            React + TypeScript + Vite + Tailwind CSS + shadcn/ui
-          </p>
+      <main className="mx-auto grid max-w-6xl gap-6 px-6 py-8 lg:grid-cols-2">
+        <div className="rounded-xl border bg-background p-6 shadow-sm">
+          <CalculatorForm />
         </div>
 
-        <Button>Start Calculation</Button>
-      </div>
-    </main>
+        <div className="rounded-xl border bg-background p-6 shadow-sm">
+          <PriceSummary />
+        </div>
+      </main>
+    </div>
   )
 }
 
