@@ -1,15 +1,12 @@
-export type LocationType =
-  | "melaka"
-  | "outside-melaka"
+export type PoolLocation = "melaka" | "outside-melaka"
 
-export type PoolSystem =
-  | "skimmer"
-  | "overflow"
-  | "infinity"
+export type PoolSystem = "skimmer" | "overflow"
 
-export type PackageType =
-  | "basic"
-  | "premium"
+export type PoolCategory =
+  | "small"
+  | "medium"
+  | "large"
+  | "ultra-large"
 
 export interface PoolDimensions {
   length: number
@@ -18,16 +15,26 @@ export interface PoolDimensions {
 }
 
 export interface PoolCalculatorInput {
-  dimensions: PoolDimensions
-  location: LocationType
+  location: PoolLocation
   poolSystem: PoolSystem
-  packageType: PackageType
+  dimensions: PoolDimensions
 }
 
-export interface PoolPriceBreakdown {
-  basePrice: number
-  locationCharge: number
-  systemCharge: number
-  packageCharge: number
-  totalPrice: number
+export interface PriceRange {
+  minimum: number
+  maximum: number
+}
+
+export interface PriceBreakdown {
+  area: number
+  category: PoolCategory
+
+  minimumRate: number
+  maximumRate: number
+
+  minimumDiscount: number
+  maximumDiscount: number
+
+  originalPrice: PriceRange
+  finalPrice: PriceRange
 }
