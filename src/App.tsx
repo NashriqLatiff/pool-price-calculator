@@ -5,7 +5,12 @@ import { PriceSummary } from "@/components/calculator/PriceSummary"
 import { Header } from "@/components/layout/Header"
 
 import type { PoolCalculatorInput } from "@/types/calculator"
+
 import { calculatePoolPrice } from "@/utils/calculatePrice"
+import {
+  hasValidationErrors,
+  validateCalculatorInput,
+} from "@/utils/validateCalculator"
 
 const INITIAL_INPUT: PoolCalculatorInput = {
   location: "melaka",
@@ -22,7 +27,19 @@ function App() {
   const [input, setInput] =
     useState<PoolCalculatorInput>(INITIAL_INPUT)
 
+  const validationErrors = useMemo(
+    () => validateCalculatorInput(input),
+    [input],
+  )
+
   const calculation = useMemo(() => {
+    if (hasValidationErrors(validationErrors)) {
+      return {
+        result: null,
+        error: null,
+      }
+    }
+
     try {
       return {
         result: calculatePoolPrice(input),
@@ -37,7 +54,7 @@ function App() {
             : "Unable to calculate pool price.",
       }
     }
-  }, [input])
+  }, [input, validationErrors])
 
   return (
     <div className="min-h-screen bg-muted/40">
@@ -47,6 +64,7 @@ function App() {
         <div className="rounded-xl border bg-background p-6 shadow-sm">
           <CalculatorForm
             value={input}
+            errors={validationErrors}
             onChange={setInput}
           />
         </div>

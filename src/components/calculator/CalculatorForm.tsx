@@ -1,3 +1,4 @@
+import type { CalculatorValidationErrors } from "@/utils/validateCalculator"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
@@ -16,11 +17,13 @@ import type {
 
 interface CalculatorFormProps {
   value: PoolCalculatorInput
+  errors: CalculatorValidationErrors
   onChange: (value: PoolCalculatorInput) => void
 }
 
 export function CalculatorForm({
   value,
+  errors,
   onChange,
 }: CalculatorFormProps) {
   function updateLocation(location: PoolLocation) {
@@ -129,12 +132,15 @@ export function CalculatorForm({
             step="0.1"
             value={value.dimensions.length}
             onChange={(event) =>
-              updateDimension(
-                "length",
-                Number(event.target.value),
-              )
+              updateDimension("length", Number(event.target.value))
             }
-          />
+            />
+
+            {errors.length && (
+            <p className="text-xs text-destructive">
+            {errors.length}
+            </p>
+            )}
         </div>
 
         <div className="space-y-2">
@@ -155,6 +161,11 @@ export function CalculatorForm({
               )
             }
           />
+          {errors.width && (
+            <p className="text-xs text-destructive">
+            {errors.width}
+            </p>
+            )}
         </div>
 
         <div className="space-y-2">
@@ -179,8 +190,20 @@ export function CalculatorForm({
           <p className="text-xs text-muted-foreground">
             Depth does not affect the pool price.
           </p>
+
+          {errors.depth && (
+            <p className="text-xs text-destructive">
+            {errors.depth}
+            </p>
+            )}
         </div>
       </div>
+      {/* AREA ERROR DI SINI */}
+        {errors.area && (
+        <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+        {errors.area}
+        </div>
+        )}
     </section>
   )
 }
