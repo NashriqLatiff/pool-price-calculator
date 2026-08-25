@@ -59,31 +59,61 @@ function App() {
   }, [input, validationErrors])
 
   return (
-    <div className="min-h-screen bg-muted/40">
-      <Header />
+  <div className="min-h-screen bg-muted/30">
+    <Header />
 
-      <main className="mx-auto max-w-6xl space-y-6 px-6 py-8">
-        <UnitConverter />
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="space-y-10">
+        {/* Unit Conversion Section */}
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight">
+              Unit Conversion Tools
+            </h2>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-xl border bg-background p-6 shadow-sm">
-            <CalculatorForm
-              value={input}
-              errors={validationErrors}
-              onChange={setInput}
-          />
-        </div>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Convert measurements before entering your pool dimensions.
+            </p>
+          </div>
 
-        <div className="rounded-xl border bg-background p-6 shadow-sm">
-          <PriceSummary
-            result={calculation.result}
-            error={calculation.error}
-        />
-        </div>
-        </div>
-      </main>
-    </div>
-  )
+          <UnitConverter />
+        </section>
+
+        {/* Pool Calculator Section */}
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight">
+              Pool Price Calculator
+            </h2>
+
+            <p className="mt-1 text-sm text-muted-foreground">
+              Enter your project details to calculate the estimated pool price.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
+            <div className="rounded-2xl border bg-background p-5 shadow-sm sm:p-6">
+              <CalculatorForm
+                value={input}
+                errors={validationErrors}
+                onChange={setInput}
+              />
+            </div>
+
+            <div className="lg:sticky lg:top-6 lg:self-start">
+              <div className="rounded-2xl border bg-background p-5 shadow-sm sm:p-6">
+                <PriceSummary
+                  result={calculation.result}
+                  error={calculation.error}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+)
 }
 
 export default App
