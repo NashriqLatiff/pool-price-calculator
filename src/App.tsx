@@ -12,6 +12,8 @@ import {
   validateCalculatorInput,
 } from "@/utils/validateCalculator"
 
+import { UnitConverter } from "@/components/converter/UnitConverter"
+
 const INITIAL_INPUT: PoolCalculatorInput = {
   location: "melaka",
   poolSystem: "skimmer",
@@ -60,12 +62,15 @@ function App() {
     <div className="min-h-screen bg-muted/40">
       <Header />
 
-      <main className="mx-auto grid max-w-6xl gap-6 px-6 py-8 lg:grid-cols-2">
-        <div className="rounded-xl border bg-background p-6 shadow-sm">
-          <CalculatorForm
-            value={input}
-            errors={validationErrors}
-            onChange={setInput}
+      <main className="mx-auto max-w-6xl space-y-6 px-6 py-8">
+        <UnitConverter />
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="rounded-xl border bg-background p-6 shadow-sm">
+            <CalculatorForm
+              value={input}
+              errors={validationErrors}
+              onChange={setInput}
           />
         </div>
 
@@ -73,7 +78,8 @@ function App() {
           <PriceSummary
             result={calculation.result}
             error={calculation.error}
-          />
+        />
+        </div>
         </div>
       </main>
     </div>
