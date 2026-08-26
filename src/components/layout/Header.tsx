@@ -7,11 +7,11 @@ export function Header() {
             Swimming Pool Cost Estimator
           </p>
 
-          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
             Pool Price Calculator
           </h1>
 
-          <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
             Estimate your swimming pool construction price based on pool size,
             system type, and project location.
           </p>

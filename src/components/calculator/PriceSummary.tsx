@@ -83,7 +83,7 @@ export function PriceSummary({
         </p>
 
         <div className="mt-2 space-y-1">
-          <p className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <p className="break-words text-3xl font-bold tracking-tight sm:text-4xl">
             {formatCurrency(result.finalPrice.minimum)}
           </p>
 
@@ -91,7 +91,7 @@ export function PriceSummary({
             to
           </p>
 
-          <p className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <p className="break-words text-2xl font-semibold tracking-tight sm:text-3xl">
             {formatCurrency(result.finalPrice.maximum)}
           </p>
         </div>

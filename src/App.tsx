@@ -63,7 +63,7 @@ function App() {
     <Header />
 
     <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="space-y-10">
+      <div className="space-y-8 sm:space-y-10">
         {/* Unit Conversion Section */}
         <section className="space-y-4">
           <div>
@@ -91,7 +91,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
+          <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
             <div className="rounded-2xl border bg-background p-5 shadow-sm sm:p-6">
               <CalculatorForm
                 value={input}
