@@ -1,75 +1,64 @@
-# React + TypeScript + Vite
+# 🏊 Pool Price Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web-based swimming pool construction price calculator built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui.
 
-Currently, two official plugins are available:
+The application provides instant estimated construction pricing based on pool dimensions, pool system, and project location.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- Instant pool price calculation
+- Automatic price updates when input changes
+- Melaka and outside Melaka pricing
+- Skimmer and Overflow pool systems
+- Pool size validation
+- Responsive user interface
+- Feet to meter conversion
+- Feet and inches to decimal feet conversion
+- Automated unit testing with Vitest
+- No database required
+- Client-side calculation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- Vitest
+- Git & GitHub
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧮 Pool Price Calculator
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The calculator estimates swimming pool construction prices based on:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Project location
+- Pool system
+- Pool length
+- Pool width
+- Pool depth
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Pricing is calculated automatically whenever the user changes the input.
 
-```
+## 📐 Unit Conversion Tools
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The application includes useful unit conversion tools.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Feet to Meter
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Convert measurements from feet to meters.
 
-```
+### Feet + Inches to Decimal Feet
+
+Example:
+
+5 ft 7 in → 5.58 ft
+
+## 🧪 Testing
+
+The core calculation logic is covered by automated unit tests using Vitest.
+
+Run tests:
+
+```bash
+npm run test:run
