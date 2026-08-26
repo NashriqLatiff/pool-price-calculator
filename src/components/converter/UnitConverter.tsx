@@ -65,18 +65,22 @@ export function UnitConverter() {
 }, [precisionFeet, precisionInches])
 
   return (
-    <section className="space-y-6 rounded-xl border bg-background p-6 shadow-sm">
-      <div>
-        <h2 className="text-2xl font-semibold">
-          Unit Converter
+    <section className="space-y-6 rounded-2xl border bg-background p-5 shadow-sm sm:p-6">
+      <div className="space-y-1">
+        <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+            Measurement Tools
+        </p>
+
+        <h2 className="text-2xl font-semibold tracking-tight">
+            Unit Converter
         </h2>
 
-        <p className="mt-1 text-sm text-muted-foreground">
-          Convert pool measurements between meters and feet.
+        <p className="text-sm leading-6 text-muted-foreground">
+            Convert measurements between meters and feet before entering your pool dimensions.
         </p>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-4 rounded-xl border bg-muted/20 p-4">
         <label
           htmlFor="conversion-mode"
           className="text-sm font-medium"
@@ -125,30 +129,30 @@ export function UnitConverter() {
         />
       </div>
 
-      <div className="rounded-lg bg-muted p-4">
-        <p className="text-sm text-muted-foreground">
-          Result
-        </p>
+      <div className="rounded-xl bg-muted/60 p-4">
+  <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+    Result
+  </p>
 
-        <p className="mt-1 text-2xl font-semibold">
-          {convertedValue !== null
-            ? `${convertedValue.toFixed(2)} ${
-                mode === "meters-to-feet" ? "ft" : "m"
-              }`
-            : "Enter a valid value"}
-        </p>
-      </div>
+  <p className="mt-2 text-2xl font-semibold tracking-tight">
+    {convertedValue !== null
+      ? `${convertedValue.toFixed(2)} ${
+          mode === "meters-to-feet" ? "ft" : "m"
+        }`
+      : "Enter a valid value"}
+  </p>
+</div>
 
       <div className="border-t pt-6">
-        <div>
-          <h3 className="text-lg font-semibold">
-            Precision Foot Calculator
-          </h3>
+  <div className="space-y-1">
+    <h3 className="text-lg font-semibold tracking-tight">
+      Precision Foot Calculator
+    </h3>
 
-          <p className="mt-1 text-sm text-muted-foreground">
-            Convert feet and inches into decimal feet.
-          </p>
-        </div>
+    <p className="text-sm text-muted-foreground">
+      Convert feet and inches into decimal feet.
+    </p>
+  </div>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
@@ -193,17 +197,17 @@ export function UnitConverter() {
           </div>
         </div>
 
-        <div className="mt-4 rounded-lg bg-muted p-4">
-          <p className="text-sm text-muted-foreground">
-            Total Feet
-          </p>
+        <div className="mt-4 rounded-xl bg-muted/60 p-4">
+  <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+    Total Feet
+  </p>
 
-          <p className="mt-1 text-2xl font-semibold">
-            {decimalFeet !== null
-              ? `${decimalFeet.toFixed(2)} ft`
-              : "Enter valid feet and inches"}
-          </p>
-        </div>
+  <p className="mt-2 text-2xl font-semibold tracking-tight">
+    {decimalFeet !== null
+      ? `${decimalFeet.toFixed(2)} ft`
+      : "Enter valid feet and inches"}
+  </p>
+</div>
       </div>
     </section>
   )
