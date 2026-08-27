@@ -1,5 +1,9 @@
 # 🏊 Pool Price Calculator
 
+## 🌐 Live Demo
+
+https://pool-price-calculator.vercel.app/
+
 A modern web-based swimming pool construction price calculator built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui.
 
 The application provides instant estimated construction pricing based on pool dimensions, pool system, and project location.
@@ -62,3 +66,11 @@ Run tests:
 
 ```bash
 npm run test:run
+
+## 🚀 Deployment
+
+The application is deployed on Vercel and automatically redeploys whenever changes are pushed to the `main` branch.
+
+Production:
+
+https://pool-price-calculator.vercel.app/
