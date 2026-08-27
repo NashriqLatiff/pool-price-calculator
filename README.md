@@ -66,6 +66,7 @@ Run tests:
 
 ```bash
 npm run test:run
+```
 
 ## 🚀 Deployment
 
